@@ -1,3 +1,6 @@
+// src/routes/Invite
+
+
 import React from 'react'
 
 const Invite = () => {

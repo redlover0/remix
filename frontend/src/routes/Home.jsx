@@ -1,3 +1,7 @@
+/** @jsxImportSource theme-ui */
+
+// src/routes/Home
+
 import React from 'react';
 import {Box,Text} from 'theme-ui'
 import ChallengeCard from '../componets/ChallengeCard';
@@ -36,6 +40,7 @@ const Home = () => {
                     </a>
         </div>
             </section>
+            <ChallengeCard/>
         </main>
     );
 };
