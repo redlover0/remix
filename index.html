@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <meta name="description" content="Web site created using create-react-app"/>
+    <title>React App</title>
+
+    <!--    Fonts & CSS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="output.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet"/>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css"/>
+
+    <!--    CDN libraries -->
+    <script src="https://unpkg.com/@strudel/embed@latest"></script>
+    <script src="https://unpkg.com/@strudel/repl@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
+</head>
+
+<!--HackClub Flag-->
+<body class="bg-pink-500 heropattern-pianoman-red-100/50 min-h-screen flex flex-col items-center justify-center">
+<a href="http://hackclub.com" class="absolute top-0 left-0 right-20">
+    <img
+            src="./flag.svg"
+            alt="Hack Club"
+    />
+</a>
+
+<!--  Description  -->
+<section class="w-full max-w-3xl mx-auto items-center mt-16">
+    <p class="text-bg-dark font-bold text-center text-2xl md:text-3xl"
+       style="font-family: 'Bitcount Grid Double', monospace;">
+        Welcome to the Hack Club Remix!
+    </p>
+    <p class="text-center mt-4 border-4 border-bg-dark rounded-lg p-4 text-bg-dark text-lg md:text-xl leading-relaxed bg-white">
+        <span class="font-bold">We challenge you</span> to creatively remix this beat made in Strudel.
+        If your remix is selected for release, <span class="font-bold">you'll be credited and receive royalties from the album across all our platforms.</span>
+        Submit as many remixes as much as you want—make it your own!
+    </p>
+</section>
+
+
+<!--Row with Logo, Strudel Editor and Submit Button-->
+<section class="w-full max-w-max mx-auto mt-8 mb-4 p-6 flex flex-row items-center justify-center gap-4">
+    <img src="logo.svg" alt="Remix Logo" class="w-104 h-64">
+
+    <main id="strudel" class="flex rounded-3 flex-col items-center justify-center">
+        <iframe
+                src="https://strudel.cc/#Ly8gLS0tIFJlbWl4IENoYWxsZW5nZTogTWFrZSBUaGlzIEJlYXQgWW91cnMhIC0tLQovLyBTdGFydCB0aGUgdGVtcG8KGNoYW5nZSB0aGlzIG51bWJlciB0byBtYWtlIGl0IGZhc3RlciBvciBzbG93ZXIpCnNldGNwcygxKQoKLy8gLS0tIE1lbG9keSBTZWN0aW9uIC0tLQovLyBUaGlzIGlzIHRoZSBtYWluIG1lbG9keSBwYXR0ZXJuLiBUcnkgY2hhbmdpbmcgdGhlIG51bWJlcnMsIHNjYWxlLCBvciBzb3VuZCEKLy8gVG8gbGVhcm4gbW9yZTogU2VhcmNoICJTdHJ1ZGVsIG1lbG9keSBwYXR0ZXJuIiBvciB2aXNpdCB0aGUgU3RydWRlbCBiYXNpY3MgZ3VpZGUgWzNdLgpuKCI8MCAxXzIgMyA0Pio4Iikuc2NhbGUoJ0c0IG1pbm9yJykKLnMoImdtX2xlYWRfNl92b2ljZSIpCi5jbGlwKHNpbmUucmFuZ2UoLjIsLjgpLnNsb3coOCkpCi5qdXgocmV2KQoucm9vbSgyKQouc29tZXRpbWVlcyhhZGRobm90ZSgiMTIiKSkpCi5scGYocGVybGluLnJhbmdlKDIwMCwyMDAwMCkuc2xvdyg0KSkKCi8vIC0tLSBCYXNpYyBEcnVtIFBhdHRlcm4gLS0tCi8vIEhlcmUncyBhIHN1cGVyIHNpbXBsZSBkcnVtIHBhdHRlcm4gdXNpbmcgYmFzcyBkcnVtIChiZCksIGh-haXRoYXQgKGhoKSwgYW5kIHNub3JlIChzZCkuCi8vIFRyeSBjaGFuZ2luZyB0aGUgb3JkZXIsIGFkZGluZyBtb3JlIGRydW1zLCBvciB1c2luZyBkaWZmZXJlbnQgZHR1bSBzb3VuZHMhCi8vIEZvciBtb3JlIGRydW0gc291bmRzLCBzZWFyY2ggIlN0cnVkZWwgZHJ1bSBzb3VuZHMhIiBvciBjaGVjayB0aGUgU3RydWRlbCBzb3VuZCBsaXN0IFszXVs1XS4Kc291bmQoImJkIH4gaGggfiBzZCB%2BIGhoIH4iKQovLyBiZCA9IGJhc3MgZHJ1bSwgc2QgPSBzbmFyZSBkcnVtLCBoaCA9IGhpLWhhdAovLyB%2BID0gcmVzdCAobm8gc291bmQpCi8vIFRJUDogUmVwbGFjZSAiYmQiLCAic2QiLCAiaGgiIHdpdGggb3RoZXIgZHJ1bSBzb3VuZHMgeW91IGZpbmQhCi8vIFRJUDogQWRkIG1vcmUgc3RlcHMgb3IgcmVhcnJhbmdlIHRoZW0gdG8gbWFrZSB5b3VyIG93biByaHl0aG0uCgovLyAtLS0gUHVuY2ggQ2FyZCBWaXN1YWxpemF0aW9uIC0tLQovLyBUaGlzIHNob3dzIHlvdXIgZHJ1bSBwYXR0ZXJuIHZpc3VhbGx5LiBDaGFuZ2UgdGhlIG5vdGVzIGFuZCBjb2xvcnMgdG8gbWFrZSBpdCB1bmlxdWUhCi8vIEZvciBhIGd1aWRlOiBTZWFyY2ggIlN0cnVkZWwgcHVuY2hjYXJkIHZpc3VhbGl6YXRpb24iIG9yIHNlZSB0aGUgU3RydWRlbCBiYXNpY3Mgd29ya3Nob3AgWzNdLgpub3RlKCJjIGEgZiBlIikKLmNvbG9yKCJ3aGl0ZSIpCi5fcHVuY2hjYXJkKCkKLmNvbG9yKCJjeWFuIikKLy8gVElQOiBDaGFuZ2UgdGhlIGxldHRlcnMgKGMgYSBmIGUpIHRvIGFueSB5b3UgbGlrZSDigJMgZWFjaCBsZXR0ZXIgaXMgYSBzdGVwIQovLyBUSVA6IFRyeSBkaWZmZXJlbnQgY29sb3JzIGZvciB5b3VyIHB1bmNoY2FyZCAoZS5nLiwgIm1hZ2VudGEiLCAieWVsbG93IiwgImxpbWUiKS4KCi8vIC0tLSBZT1VSIFJFTUlYIElERUFTIC0tLQovLyAxLiBDaGFuZ2UgdGhlIGRydW0gcGF0dGVybjogdHJ5ICJiZCBzZCBoaCBiZCIgb3IgImhoKjgiIGZvciBhIGZhc3QgaGktaGF0IQovLyAyLiBUcnkgYSBkaWZmZXJlbnQgc2NhbGUgb3IgbWVsb2R5IHBhdHRlcm4gYWJvdmUuCi8vIDMuIEFkZCBlZmZlY3RzOiBsb29rIHVwICIuZWNobygpIiwgIi5yZXZlcmIoKSIsIG9yICIucGFuKCkiIGluIFN0cnVkZWwgZG9jcy4KLy8gNC4gVXNlIGEgdHJ5IGRpZmZlcmVudCBkcnVtIGJhbms6IC5iYW5rKCJST2xhbmRUUjkwOSIpIG9yIC5iYW5rKCJUUjgwOCIpIGFmdGVyIHlvdXIgYmVhdCBwYXR0ZXJuIFsxXVs1XS4KCi8vIC0tLSBOZWVkIEhlbHA%2FIC0tLQovLyAtIFN0cnVkZWwgQmFzaWNzOiBzdHJ1ZGVsLnBhdHRlcm5jbHViLm9yZy93b3Jrc2hvcC9zdHJ1ZGVsLWJhc2ljcy8gWzNdCi8vIC0gRHJ1bSBQYXR0ZXJuczogc3RydWRlbC5jYy93b3Jrc2hvcC9maXJzdC1zb3VuZHMvIFs1XQovLyAtIFZpZGVvIFR1dG9yaWFsczogU2VhcmNoICJTdHJ1ZGVsIGRydW0gdHV0b3JpYWwiIG9uIFlvdVR1YmUgWzFdCgovLyAtLS0gTm93LCByZW1peCBhd2F5IGFuZCBtYWtlIGl0IFlPVVIgYmVhdCEgLS0tCg%3D%3D"
+                width="600"
+                height="300"
+                class="rounded-lg"
+                title="Strudel Live Editor"
+                allowfullscreen
+                loading="lazy"
+        ></iframe>
+
+
+        <section class="flex flex-row gap-2 mt-4 ">
+            <button
+                    type="button"
+                    class="w-48 h-16 bg-white text-gray-900 px-5 py-2.5 rounded-lg hover:bg-gray-100"
+                    onclick="window.location.href='https://forms.hackclub.com/t/vhWBAyQzKrus';"
+            >
+                Submission
+            </button>
+            <button
+                    type="button"
+                    class="w-48 h-16 bg-white text-gray-900 px-5 py-2.5 rounded-lg hover:bg-gray-100"
+                    onclick="window.location.href='https://hackclub.slack.com/archives/C095614E9B3';"
+            >
+                Join Slack
+            </button>
+        </section>
+    </main>
+</section>
+</body>
+</html>
