@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npx http-server .",
     "build": "npm run build:css",
-    "build:css": "postcss styles.css -o output.css"
+    "build:css": "NODE_ENV=production postcss styles.css -o output.css"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.8",
