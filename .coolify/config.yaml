@@ -1,0 +1,10 @@
+version: 1.0.0
+build:
+  commands:
+    - npm install
+    - npm run build
+deploy:
+  type: static
+  static:
+    serve_dir: .
+    port: 8080
