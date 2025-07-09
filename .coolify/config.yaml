@@ -1,12 +1,14 @@
 version: 1.0.0
 build:
   commands:
-    - npm install
-    - npm run build
+    - npm start
+    - npm build
+    - npm run build:css
 deploy:
   type: static
   static:
     serve_dir: .
+    entry_point: index.html
     exclude:
       - node_modules
       - .git
