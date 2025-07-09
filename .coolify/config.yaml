@@ -7,4 +7,8 @@ deploy:
   type: static
   static:
     serve_dir: .
+    exclude:
+      - node_modules
+      - .git
+      - .idea
     port: 8080
