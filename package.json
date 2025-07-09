@@ -5,13 +5,14 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx http-server .",
+    "build": "npm run build:css",
     "build:css": "postcss styles.css -o output.css"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.8",
+    "http-server": "^14.1.1",
     "postcss": "^7.0.39",
     "postcss-cli": "^7.1.2",
     "tailwindcss": "^1.9.6",
