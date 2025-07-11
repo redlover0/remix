@@ -18,10 +18,9 @@
     <meta name="twitter:image" content="/logo.svg"/>
 
 
-    <!--    Fonts & CSS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=Cursive"
           rel="stylesheet">
     <link rel="stylesheet" href="output.css"/>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet"/>
@@ -29,16 +28,70 @@
           href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.css"
     />
     <link rel="stylesheet" href="./styles.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.css"/>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@marqueefy/marqueefy@1.0.3/dist/css/marqueefy.min.css"
+          integrity="sha384-wADgvhAqbORDLWCl6LHRmwaldDxcsCZJ9EfC4tyLmlqRSrxK8SQSmUprPJYdtCZb"
+          crossorigin="anonymous">
 
-    <!--    CDN libraries -->
+
     <script src="https://unpkg.com/@strudel/embed@latest"></script>
     <script src="https://unpkg.com/@strudel/repl@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@marqueefy/marqueefy@1.0.3/dist/js/marqueefy.min.js"
+            integrity="sha384-GkNdpzZA0aigYQs7bhB94ikrs1rxyzcoGZqE/KBxsvvsQPERiMHw4vrDlCgDewnu"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/countdown@2.6.0/countdown.min.js"></script>
+
+    <style>
+        #example3 {
+            --mq-border-width: 4px;
+            --mq-border-style: dashed;
+            --mq-padding-x: 20px;
+            /* Corrected height: removed !important as it might conflict with inline style,
+               and removed inline style from HTML for this div */
+            height: 50px;
+            width: 75%;
+            background-color: rgba(128, 128, 128, 0.25); /* Grey with 25% opacity */
+        }
+
+        .marqueefy .content {
+            font-weight: bold;
+            color: black;
+            text-transform: uppercase;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            display: flex; /* Use flexbox to center content */
+            align-items: center; /* Vertically center content */
+            justify-content: center; /* Horizontally center content */
+            height: 100%; /* Ensure content takes full height for centering */
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+
+        /* The countdown display will be the only visible item */
+        .marqueefy .content .item {
+            /* No display: none here, as this will be the item we are updating */
+            /* Ensure it is visible by default or through script */
+        }
+
+        /* Style for the countdown text (if needed, otherwise .item is sufficient) */
+        #countdown-display {
+            display: block; /* Make it visible */
+            flex-shrink: 0; /* Prevent the item from shrinking within the flex container */
+        }
+    </style>
 </head>
 
-<!--HackClub Flag-->
 <body class="bg-pink-500 heropattern-pianoman-red-100/50 min-h-screen flex flex-col items-center justify-center">
+
+<div class="marqueefy w-full" id="example3" data-mq-speed="10" tabindex="0" class="align-content-center iframe-container">
+    <div class="content">
+        <span id="countdown-display" class="item">ENDS TODAY @ 12:59 PM EST</span>
+    </div>
+</div>
+
 <a href="http://hackclub.com" class="absolute top-0 left-0 right-20">
     <img
             src="./flag.svg"
@@ -46,7 +99,6 @@
     />
 </a>
 
-<!--  Description/ HERO  -->
 <section class="w-full max-w-3xl mx-auto items-center mt-16">
     <p class="text-bg-dark font-bold text-center text-2xl md:text-3xl"
        style="font-family: 'Bitcount Grid Double', monospace;">
@@ -60,21 +112,22 @@
 </section>
 
 
-
-<!--Row with Logo, Strudel Editor and Submit Button-->
 <section class="w-full max-w-max mx-auto mt-4 mb-4 p-6 flex flex-row items-center justify-center gap-4">
     <img src="logo.svg" alt="Remix Logo" class="w-104 h-64">
 
     <main id="strudel" class="flex rounded-3 flex-col items-center justify-center">
-        <iframe
-                src="https://strudel.cc/#Ly8gQ2xpY2sgUExBWSDigLYgYW5kIHN0YXJ0IHJlbWl4aW5nIQoKc2V0Y3BzKDEpIC8vIFRlbXBvOiBUcnkgMC44IChmb3Igc2xvd2VyKSBvciAxLjIgKGZvciBmYXN0ZXIpCgpzdGFjaygKICAvLyBNQUlOIE1FTE9EWSAtIFRyeSBjaGFuZ2luZyB0aGUgbnVtYmVycyEKICBuKCI8MCAzIDUgNyAzIDUgMiAwPiIpLnNjYWxlKCdHNCBtaW5vcicpCiAgICAucygiZ21fZWxlY3RyaWNfcGlhbm9fMSIpCiAgICAuZ2FpbigwLjYpLAoKICAvLyBEUlVNUyAtIENoYW5nZSAiYmQgaGggc2QgaGgiIGZvciBkaWZmZXJlbnQgYmVhdHMhCiAgc291bmQoImJkIGhoIHNkIGhoIiksCgogIC8vIEJBU1MgLSBUcnkgZGlmZmVyZW50IG5vdGVzOiAiZzIgZDIgYzIgZzIiCiAgbm90ZSgiZzIgZDIgYzIgZzIiKQogICAgLnMoImdtX2Fjb3VzdGljX2Jhc3MiKQogICAgLmdhaW4oMS4xKQopCgovLyBFeHBlcmltZW50ISBUcnkgY2hhbmdpbmcgbnVtYmVycywgbm90ZXMsIG9yIHNvdW5kcyBhYm92ZS4KLy8gV2hlbiB5b3UncmUgaGFwcHksIGNsaWNrIFNIQVJFIGFuZCBzdWJtaXQgeW91ciBsaW5rIQ=="
-                width="600"
-                height="300"
-                class="rounded-lg shadow-lg"
-                title="Strudel Live Editor"
-                allowfullscreen
-                loading="lazy"
-        ></iframe>
+        <div class="iframe-container">
+            <div class="iframe-overlay"></div>
+            <iframe
+                    src="https://strudel.cc/#Ly8gQ2xpY2sgUExBWSDigLYgYW5kIHN0YXJ0IHJlbWl4aW5nIQoKc2V0Y3BzKDEpIC8vIFRlbXBvOiBUcnkgMC44IChmb3Igc2xvd2VyKSBvciAxLjIgKGZvciBmYXN0KSAKCiAgc3RhY2soCiAgLy8gTUFJTiBNRUxPRFkgLSBUcnkgY2hhbmdpbmcgdGhlIG51bWJlcnMKICBuKCI8MCAzIDUgNyAzIDUgMiAwPiIpLnNjYWxlKCdHNCBtaW5vcicpCiAgICAucygiZ21fZWxlY3RyaWNfcGlhbm9fMSIpCiAgICAuZ2FpbigwLjYpLAoKICAvLyBEUlVNUyAtIENoYW5nZSAiYmQgaGggc2QgaGgiIGZvciBkaWZmZXJlbnQgYmVhdHMhCiAgc291bmQoImJkIGhoIHNkIGhoIiksCgogIC8vIEJBU1MgLSBUcnkgZGlmZmVyZW50IG5vdGVzOiAiZzIgZDIgYzIgZzIiCiAgbm90ZSgiZzIgZDIgYzIgZzIiKQogICAgLnMoImgmYWNvdXN0aWNfYmFzcyIpCiAgICAuZ2FpbigxLjFpKQopCgovLyBFeHBlcmltZW50ISBUcnkgY2hhbmdpbmcgbnVtYmVycywgbm90ZXMsIG9yIHNvdW5kcyBhYm92ZS4KLy8gV2hlbiB5b3UncmUgaGFwcHksIGNpY2sgU0hBUkUgYW5kIHN1Ym1pdCB5b3VyIGxpbmsh=="
+                    width="600"
+                    height="300"
+                    class="rounded-lg shadow-lg"
+                    title="Strudel Live Editor"
+                    allowfullscreen
+                    loading="lazy"
+            ></iframe>
+        </div>
 
         <section class="flex flex-row gap-4 mt-6">
             <button
@@ -94,5 +147,95 @@
         </section>
     </main>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const countdownDisplay = document.getElementById('countdown-display');
+        let marqueefyInstance; // Declare variable to hold Marqueefy instance
+
+        function updateCountdown() {
+            // Target date: Next Friday at 12:59 AM in the user's local timezone
+            const now = new Date();
+            const targetDate = new Date();
+
+            // Calculate days until next Friday
+            const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 5 = Friday, 6 = Saturday
+            let daysUntilFriday = 0;
+
+            // If today is Friday and the time is already past 12:59 AM, go to next Friday
+            if (dayOfWeek === 5 && (now.getHours() > 0 || (now.getHours() === 0 && now.getMinutes() >= 59))) {
+                daysUntilFriday = 7; // Go to next Friday
+            } else if (dayOfWeek < 5) { // If it's Sunday to Thursday
+                daysUntilFriday = 5 - dayOfWeek;
+            } else if (dayOfWeek === 6) { // If it's Saturday
+                daysUntilFriday = 6;
+            }
+            // If it's Friday before 12:59 AM, daysUntilFriday remains 0, targetDate will be today
+
+            targetDate.setDate(now.getDate() + daysUntilFriday);
+            targetDate.setHours(0, 59, 0, 0); // Set to 12:59 AM
+
+            // If the targetDate is in the past (e.g., if it's past 12:59 AM on the target Friday),
+            // ensure it targets the *next* Friday. This check is crucial for accurate future dates.
+            if (targetDate.getTime() < now.getTime() && dayOfWeek !== 5) {
+                targetDate.setDate(targetDate.getDate() + 7);
+            }
+
+
+            const units = countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS;
+            const ts = countdown(now, targetDate, units);
+
+            let countdownString = "";
+            if (ts.value > 0) {
+                // If the countdown is still active
+                countdownString = "Remix Challenge Ends In: ";
+                if (ts.days) countdownString += ts.days + ' days, ';
+                if (ts.hours) countdownString += ts.hours + ' hours, ';
+                if (ts.minutes) countdownString += ts.minutes + ' minutes, ';
+                if (ts.seconds) countdownString += ts.seconds + ' seconds';
+
+                // Remove trailing comma and space if present
+                if (countdownString.endsWith(', ')) {
+                    countdownString = countdownString.slice(0, -2);
+                }
+            } else {
+                // When the countdown is over
+                countdownString = "Remix Challenge Has Ended!";
+                clearInterval(countdownInterval); // Stop updating
+            }
+
+            countdownDisplay.textContent = countdownString;
+
+            // If Marqueefy is used for dynamic content, you might need to refresh it.
+            // However, since we're just updating the text content of a single item,
+            // the Marqueefy will continue to scroll this updated text.
+            // If you had multiple items that change, you'd need to re-initialize or use Marqueefy's update methods.
+        }
+
+        // Initialize Marqueefy after the DOM is ready and before the countdown starts,
+        // or ensure its structure is stable.
+        const marqueefyElement = document.getElementById('example3');
+        if (marqueefyElement) {
+            // Marqueefy expects a list of items to scroll.
+            // If we're only displaying one dynamic item, we need to ensure it's set up correctly.
+            // In this case, we update the `textContent` of the single `.item` span directly.
+            // The Marqueefy library itself might not need constant re-initialization
+            // if the structure of items doesn't change, just their content.
+            // So, the original Marqueefy initialization can stay.
+            const marqueefyList = Array.prototype.slice.call(document.querySelectorAll('.marqueefy'))
+            const marqueefyInstances = marqueefyList.map(m => {
+                return new marqueefy.Marqueefy(m, {direction: 'left', speed: 50})
+            })
+        }
+
+
+        // Update countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Initial call to display countdown immediately
+        console.log("Initial call to updateCountdown");
+        updateCountdown();
+    });
+</script>
 </body>
 </html>
